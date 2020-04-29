@@ -1,0 +1,24 @@
+{
+  "name": "j-photos-service",
+  "version": "1.0.0",
+  "description": "IMDB Photos service module for FEC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NKAJE-FEC-BLD09/J-Photos-service.git"
+  },
+  "author": "Jackson Reinagel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NKAJE-FEC-BLD09/J-Photos-service/issues"
+  },
+  "homepage": "https://github.com/NKAJE-FEC-BLD09/J-Photos-service#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
