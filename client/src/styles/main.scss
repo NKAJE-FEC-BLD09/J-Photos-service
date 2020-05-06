@@ -1,13 +1,68 @@
-h2 {
-  color: #424242;
-  font: 24px Arial,sans-serif;
-  font-weight: normal;
+*, *:before, *:after {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 1rem;
+.module {
+  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  padding: 20px 21px 24px 20px;
+  width: 667px;
+}
+
+h2 {
+  color: #424242;
+  font: 24px Arial, sans-serif;
+  font-weight: normal;
+  margin: 0 0 0.4em;
+}
+
+.media {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+a {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 13px;
+  text-align: left;
+  color: #136CB2;
+  line-height: 14.95px;
+}
+
+a:hover {
+  color: #136CB2;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:visited {
+  color: #70579D;
+}
+
+.seeMore {
+  margin-top: 3px;
+  padding-bottom: 2px;
+}
+
+.btn {
+  margin-top: -1.5px;
+  display: inline-block;
+}
+
+.link {
+  display: inline;
+  margin-left: 9px;
+  vertical-align: top;
+}
+
+.arrows {
+  display: inline-block;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 12px;
+  vertical-align: top;
 }
 
 .tooltip {
@@ -17,7 +72,6 @@ h2 {
 
 .tooltip .caption {
   visibility: hidden;
-  width: 120px;
   background-color: white;
   color: black;
   text-align: center;

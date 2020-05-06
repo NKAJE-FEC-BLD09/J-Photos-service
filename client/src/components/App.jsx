@@ -19,11 +19,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='module'>
         <h2>Photos</h2>
-        <div class='grid'>
-          <div class='thumbnail row'>
+        <div className='grid'>
+          <div className='thumbnail row'>
             <PhotoSet photos='https://imdbpics.s3.us-east-2.amazonaws.com/ali-pazani-pTKWWQbow44-unsplash.jpg' handleClick={this.handleClick.bind(this)} />
+          </div>
+          <div className='seeMore'>
+            <a className='btn'>
+              <img src='https://imdbpics.s3.us-east-2.amazonaws.com/grid+button.png' height='13.5'/>
+            </a>
+            <a className='link'>
+              See all 141 photos
+            </a>
+            <span className='arrows'>&nbsp;»</span>
           </div>
         </div>
       </div>

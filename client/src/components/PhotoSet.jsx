@@ -4,6 +4,11 @@ import Photo from './Photo';
 const PhotoSet = ({ photos, handleClick }) => (
   <div className='photo-strip row'>
     <Photo handleClick={handleClick} />
+    <Photo handleClick={handleClick} />
+    <Photo handleClick={handleClick} />
+    <Photo handleClick={handleClick} />
+    <Photo handleClick={handleClick} />
+    <Photo handleClick={handleClick} />
   </div>
 );
 
