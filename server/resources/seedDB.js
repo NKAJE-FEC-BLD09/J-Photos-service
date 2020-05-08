@@ -17,9 +17,8 @@ const insertAllPhotos = () => {
         if (err) throw err;
         if (docs) {
           for (let n = 47; n > 0; n--) {
-            Photo.updateOne({ caption: '' }, { caption: faker.random.words(7) }, (err, photo) => {
-              if (err) console.log(err);
-              if (photo) console.log(photo);
+            Photo.updateOne({ caption: '' }, { caption: faker.random.words(7) }, (err, doc) => {
+              console.log(err || doc);
             });
           }
         }

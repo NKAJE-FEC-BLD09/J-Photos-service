@@ -1,17 +1,5 @@
 const mongoose = require('mongoose');
 
-// const photoSchema = {
-//     "id": Number,
-//     "url": String,
-//     "subjects": Number,
-//     "caption": {
-//         type: String,
-//         faker: faker.random.words
-//     },
-//     "people": [String],
-//     "photographer": String
-// };
-
 const photoSchema = new mongoose.Schema({
   id: Number,
   url: String,
