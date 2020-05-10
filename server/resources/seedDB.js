@@ -6,7 +6,7 @@ const faker = require('faker');
 const convert = require('json-2-csv');
 
 const photos = [];
-// const photoDB = fs.createWriteStream('./client/src/data/photoDB.json');
+const photoDB = fs.createWriteStream('./client/src/data/photoDB.json');
 
 const insertAllPhotos = () => {
   fs.createReadStream('./server/resources/PhotoDB.csv')
@@ -15,9 +15,11 @@ const insertAllPhotos = () => {
       photos.push(row);
     })
     .on('data', (row) => {
-      fs.writeFile('./server/resources/PhotoDB.json', row, (err) => {
-        console.log(err || row);
-      });
+      convert.csv2json(JSON.stringify(row), (err, json) => {
+        if (err) throw err;
+        photoDB.write(JSON.stringify(row) + ',\n');
+        console.log(json);
+      })
     })
     .on('end', () => {
       Photo.insertMany(photos, (err, docs) => {
