@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Photo = () => (
+var Photo = ({photo, handleClick}) => (
   <span className='media'>
     <a target='_blank' href={photo.url}>
       <img className='media-object' height='99' width='99' title='Owen Wilson in Wedding Crashers (2005)' src={photo.url} />

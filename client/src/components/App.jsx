@@ -1,7 +1,8 @@
 import React from 'react';
 import PhotoSet from './PhotoSet';
 import '../styles/main.scss';
-import photoDB from '../data/photoDB';
+
+const photoDB = require('../../../data/photoDB.json');
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class App extends React.Component {
         <h2>Photos</h2>
         <div className='grid'>
           <div className='thumbnail row'>
-            <PhotoSet photos={photoDB} currentPic={currentPic} handleClick={this.handleClick.bind(this)} />
+            <PhotoSet photos={photoDB} handleClick={this.handleClick.bind(this)} />
           </div>
           <div className='seeMore'>
             <a className='btn'>
