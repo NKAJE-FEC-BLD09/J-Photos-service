@@ -13,12 +13,15 @@ module.exports = {
             "presets": [
               "@babel/preset-env", "@babel/preset-react", 
             ],
+            "plugins": [
+              "@babel/plugin-syntax-class-properties", "@babel/plugin-proposal-class-properties",
+            ],
             "cacheDirectory": true
           }
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [
           'style-loader',
           {

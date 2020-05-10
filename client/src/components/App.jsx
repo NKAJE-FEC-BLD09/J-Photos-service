@@ -1,6 +1,8 @@
 import React from 'react';
 import PhotoSet from './PhotoSet';
 import '../styles/main.scss';
+// const db = require('../db');
+// import photoDB from '.'
 
 class App extends React.Component {
   constructor(props) {
@@ -23,7 +25,7 @@ class App extends React.Component {
         <h2>Photos</h2>
         <div className='grid'>
           <div className='thumbnail row'>
-            <PhotoSet photos='https://imdbpics.s3.us-east-2.amazonaws.com/ali-pazani-pTKWWQbow44-unsplash.jpg' handleClick={this.handleClick.bind(this)} />
+            <PhotoSet photos={} currentPic={currentPic} handleClick={this.handleClick.bind(this)} />
           </div>
           <div className='seeMore'>
             <a className='btn'>
