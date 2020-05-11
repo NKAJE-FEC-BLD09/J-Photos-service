@@ -12,7 +12,8 @@ class App extends React.Component {
     this.state = {
       pics: [photoDB[0], photoDB[1], photoDB[2], photoDB[3], photoDB[4], photoDB[5]],
       currentPic: photoDB[0],
-      currentFlick: movieDB[0]
+      currentFlick: movieDB[0],
+      term: ''
     };
     this.handleFlickPick = this.handleFlickPick.bind(this);
   }
@@ -23,13 +24,16 @@ class App extends React.Component {
     });
   }
 
-  handleFlickPick(movie) {
+  handleFlickPick(e) {
     this.setState({
-      currentFlick: movie
+      currentFlick: movieDB[e.target.value - 1]
     });
-    let moviePics = photoDB.filter(photo => {
-      return movieDB
-    })
+    let moviePics = movieDB[e.target.value - 1].images.split(',');
+    this.setState({
+      pics: photoDB.filter(photo => {
+        return moviePics.includes(photo.id);
+      })
+    });
   }
 
   render() {
@@ -45,11 +49,13 @@ class App extends React.Component {
               <img src='https://imdbpics.s3.us-east-2.amazonaws.com/grid+button.png' height='13.5'/>
             </a>
             <a className='link'>
-              See all 141 photos
+              See all {this.state.pics.length} photos
             </a>
             <span className='arrows'>&nbsp;»</span>
           </div>
         </div>
+        <br></br>
+        Movie ID: <input onChange={this.handleFlickPick} size='3' />
       </div>
     );
   }
