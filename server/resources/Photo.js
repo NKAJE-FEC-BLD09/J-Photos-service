@@ -4,6 +4,8 @@ const photoSchema = new mongoose.Schema({
   id: Number,
   url: String,
   subjects: mongoose.Mixed,
+  caption: String,
+  people: String,
   photographer: String
 });
 

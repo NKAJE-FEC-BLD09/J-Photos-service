@@ -1,14 +1,11 @@
 import React from 'react';
+// import faker from 'faker'; faker.random.words(7)
 
 var Photo = ({photo, handleClick}) => (
   <span className='media'>
     <a target='_blank' href={photo.url}>
-      <img className='media-object' height='99' width='99' title='Owen Wilson in Wedding Crashers (2005)' src={photo.url} />
-      <div className='tooltip'>
-        <span className='caption'>Owen Wilson in Wedding Crashers (2005)</span>
-      </div>
+      <img className='media-object' height='99' width='99' title={photo.caption} src={photo.url} />
     </a>
-    {/* <img className='media-object' src={photo.url} alt={photo.caption} /> */}
   </span>
 );
 
