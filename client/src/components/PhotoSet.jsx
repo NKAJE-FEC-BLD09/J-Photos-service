@@ -1,10 +1,10 @@
 import React from 'react';
 import Photo from './Photo';
 
-var PhotoSet = ({ photos, handleClick }) => (
+var PhotoSet = ({ photos, handlePicClick }) => (
   <div className='photo-strip row'>
     {photos.map((photo, key) => (
-     <Photo photo={photo} key={photo.id} handleClick={handleClick} />
+     <Photo photo={photo} key={photo.id} handlePicClick={handlePicClick} />
     ))}
   </div>
 );

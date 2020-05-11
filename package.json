@@ -8,7 +8,7 @@
     "build": "webpack --config ./webpack.config.js --mode production --watch",
     "start": "webpack-dev-server --config ./webpack.config.js --open --mode development",
     "serve": "nodemon ./server/index.js",
-    "seed": "node server/seedDB.js",
+    "seed": "node server/seedMovies.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -41,9 +41,12 @@
     "body-parser": "^1.19.0",
     "chunks-webpack-plugin": "^6.1.0",
     "css-loader": "^3.5.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.19.0",
+    "jest": "^26.0.1",
     "mongoose": "^5.9.12",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.3",

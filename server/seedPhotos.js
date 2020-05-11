@@ -17,7 +17,7 @@ const insertAllPhotos = () => {
   //   })
   //   .on('end', () => {
   //     json.write(JSON.stringify(photos, null, 2) + ',\n');
-      Photo.insertMany(photodb, (err, docs) => {               ////// change photodb to photos to seed from array
+      Photo.insertMany(photodb, (err, docs) => {          //// change photodb to photos to seed from csv vs json
         console.log(err || docs.length + ' docs saved');
       });
     // })

@@ -2,21 +2,34 @@ import React from 'react';
 import PhotoSet from './PhotoSet';
 import '../styles/main.scss';
 
-const photoDB = require('../../../data/photoDB.json');
+const photoDB = require('../../../data/photodb.json');
+const movieDB = require('../../../data/moviedb.json');
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      currentPic: photoDB[0]
+      pics: [photoDB[0], photoDB[1], photoDB[2], photoDB[3], photoDB[4], photoDB[5]],
+      currentPic: photoDB[0],
+      currentFlick: movieDB[0]
     };
+    this.handleFlickPick = this.handleFlickPick.bind(this);
   }
 
-  handleClick(photo) {
+  handlePicClick(photo) {
     this.setState({
       currentPic: photo
     });
+  }
+
+  handleFlickPick(movie) {
+    this.setState({
+      currentFlick: movie
+    });
+    let moviePics = photoDB.filter(photo => {
+      return movieDB
+    })
   }
 
   render() {
@@ -25,7 +38,7 @@ class App extends React.Component {
         <h2>Photos</h2>
         <div className='grid'>
           <div className='thumbnail row'>
-            <PhotoSet photos={photoDB} handleClick={this.handleClick.bind(this)} />
+            <PhotoSet photos={this.state.pics} handlePicClick={this.handlePicClick.bind(this)} />
           </div>
           <div className='seeMore'>
             <a className='btn'>
