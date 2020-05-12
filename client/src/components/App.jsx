@@ -10,10 +10,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      pics: [photoDB[0], photoDB[1], photoDB[2], photoDB[3], photoDB[4], photoDB[5]],
-      currentPic: photoDB[0],
-      currentFlick: movieDB[0],
-      term: ''
+      pics: [photoDB[0], photoDB[3], photoDB[6], photoDB[9], photoDB[11], photoDB[16]],
+      currentPic: '',
+      currentFlick: {}
     };
     this.handleFlickPick = this.handleFlickPick.bind(this);
   }
@@ -26,14 +25,32 @@ class App extends React.Component {
 
   handleFlickPick(e) {
     this.setState({
+      pics: '',
       currentFlick: movieDB[e.target.value - 1]
     });
     let moviePics = movieDB[e.target.value - 1].images.split(',');
-    this.setState({
-      pics: photoDB.filter(photo => {
-        return moviePics.includes(photo.id);
-      })
+
+    const randomPics = photoDB.filter(photo => {
+      return photo.caption === '';
     });
+    var pic1 = Math.floor(Math.random() * randomPics.length);
+    var pic2 = Math.floor(Math.random() * randomPics.length);
+    var pic3 = Math.floor(Math.random() * randomPics.length);
+    var pic4 = Math.floor(Math.random() * randomPics.length);
+    var pic5 = Math.floor(Math.random() * randomPics.length);
+    var pic6 = Math.floor(Math.random() * randomPics.length);
+    
+    if (moviePics.length > 1) {
+      this.setState({
+        pics: photoDB.filter(photo => {
+          return moviePics.includes(photo.id);
+        })
+      });
+    } else {
+      this.setState({
+        pics: [randomPics[pic1], randomPics[pic2], randomPics[pic3], randomPics[pic4], randomPics[pic5], randomPics[pic6]]
+      });
+    }
   }
 
   render() {
