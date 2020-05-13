@@ -1,3 +1,52 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 *, *:before, *:after {
   clear: both;
   margin: 0;
@@ -30,31 +79,42 @@ h2 {
   margin-right: 5px;
 }
 
+.row .media-object {
+  height: 99px;
+  width: 99px;
+}
+
 a {
   font-family: Verdana, Arial, sans-serif;
   font-size: 13px;
-  text-align: left;
   color: #136CB2;
-  line-height: 14.95px;
+}
+
+.seeMore a {
+  text-align: left;
+  line-height: 1.15;
 }
 
 a:hover {
-  color: #136CB2;
   text-decoration: underline;
   cursor: pointer;
 }
 
-a:visited {
+.seeMore a:hover {
+  color: #136CB2;
+}
+
+.seeMore a:visited {
   color: #70579D;
 }
 
 .seeMore {
-  margin-top: 3px;
-  padding-bottom: 2px;
+  margin-top: 4px;
+  padding-bottom: 4px;
 }
 
 .btn {
-  margin-top: -1.5px;
+  margin-top: -1px;
   display: inline-block;
 }
 
@@ -68,7 +128,7 @@ a:visited {
   display: inline-block;
   font-family: Verdana, Arial, sans-serif;
   font-size: 12px;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .modal {
@@ -82,29 +142,67 @@ a:visited {
   background-color: black;
 }
 
-.ad {
+.ad-banner {
   width: 100%;
   height: 65px;
-  background-color: black;
+  background-color: black;  
+}
+
+.ad {
+  background-image: url(https://imdbpics.s3.us-east-2.amazonaws.com/Amazon_Ad.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  z-index: 500;
+  display: block;
+  position: relative;
+  width: 320px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 4px;
+}
+
+.gallery-header {
+  background-color: rgba(20, 20, 20, 0.85);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding: 10px 15%;
+  text-align: center;
+  top: auto;
+  height: 46px;
+}
+
+.gallery-link {
+  height: 25px;
 }
 
 .grid-btn {
-  position: absolute;
+  position: relative;
   display: inline-block;
-  z-index: 102;
+  z-index: 300;
   height: 25px;
   width: 25px;
   cursor: pointer;
   border: 0;
   outline: 0;
-  margin: auto;
+  left: -14px;
   background-image: url(https://imdbpics.s3.us-east-2.amazonaws.com/grid_black.png);
+}
+
+.gallery-title {
+  display: inline-block;
+  position: relative;
+  font-size: 14px;
+  color: rgb(204,204,204);
+  z-index: 200;
+  top: -8px;
+  left: -10px;
+  text-decoration: none;
 }
 
 .close {
   position: absolute;
   display: inline-block;
-  z-index: 101;
+  z-index: 250;
   height: 25px;
   width: 25px;
   cursor: pointer;
@@ -114,11 +212,86 @@ a:visited {
   background-image: url(https://imdbpics.s3.us-east-2.amazonaws.com/closeX.png);
 }
 
-.gallery-object {
-  position: absolute;
+.modal .media-object {
+  position: relative;
   display: block;
+  top: 46px;
+  z-index: 150;
   margin-left: auto;
   margin-right: auto;
+  width: 90%;
+  height: 450px; 
+}
+
+.arrow-btn {
+  position: fixed;
+  top: 50%;
+  cursor: pointer;
+  display: block;
+  height: 100px;
+  width: 70px;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.3);
+  opacity: 1;
+  transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+  will-change: opacity;
+  margin: -50px 0 0;
+}
+
+.arrow-btn:hover {
+  opacity: 1;
+}
+
+.left {
+  left: 0px;
+  float: left;
+  z-index: 400;
+}
+
+.left::before {
+  content: url(https://imdbpics.s3.us-east-2.amazonaws.com/arrowL.png);
+  left: 11px;
+  z-index: 401;
+  position: absolute;
+}
+
+.right {
+  right: 0px;
+  float: right;
+  z-index: 350;
+}
+
+.right::before {
+  content: url(https://imdbpics.s3.us-east-2.amazonaws.com/arrowR.png);
+  right: 11px;
+  z-index: 351;
+  position: absolute;
+}
+
+.gallery-footer {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  max-height: 30%;
+  padding: 15px 15%;
+  background: rgba(20,20,20,0.85);
+  color: #ccc;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 14px;
+  position: fixed;
+  z-index: 600;
+  bottom: 0;
+  display: block;
+  height: 139px;
   width: 100%;
-  height: 533px; 
+}
+
+.link-btn {
+  color: #ccc;
+  text-decoration: none;
+  border: 1px solid;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 11.9px;
+  margin-left: 10px;
+  padding: 3px 7px 5px;
 }

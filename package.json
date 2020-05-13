@@ -4,7 +4,7 @@
   "description": "IMDb Photos service module for FEC",
   "main": "index.jsx",
   "scripts": {
-    "setup": "run-p build serve start seed",
+    "setup": "run-p build serve start",
     "build": "webpack --config ./webpack.config.js --mode production --watch",
     "start": "webpack-dev-server --config ./webpack.config.js --open --mode development",
     "serve": "nodemon ./server/db/index.js",
