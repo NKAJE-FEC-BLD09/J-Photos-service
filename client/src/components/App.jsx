@@ -1,5 +1,6 @@
 import React from 'react';
 import PhotoSet from './PhotoSet';
+import Modal from './Modal';
 import '../styles/main.scss';
 
 const photoDB = require('../../../data/photodb.json');
@@ -12,14 +13,18 @@ class App extends React.Component {
     this.state = {
       pics: [photoDB[0], photoDB[3], photoDB[6], photoDB[9], photoDB[11], photoDB[16]],
       currentPic: '',
-      currentFlick: {}
+      currentFlick: {},
+      show: false
     };
     this.handleFlickPick = this.handleFlickPick.bind(this);
+    this.handlePicClick = this.handlePicClick.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handlePicClick(photo) {
     this.setState({
-      currentPic: photo
+      currentPic: photo,
+      show: true
     });
   }
 
@@ -53,13 +58,17 @@ class App extends React.Component {
     }
   }
 
+  handleClose(e) {
+    this.setState({ show: false });
+  }
+
   render() {
     return (
       <div className='module'>
         <h2>Photos</h2>
         <div className='grid'>
           <div className='thumbnail row'>
-            <PhotoSet photos={this.state.pics} handlePicClick={this.handlePicClick.bind(this)} />
+            <PhotoSet photos={this.state.pics} handlePicClick={this.handlePicClick} />
           </div>
           <div className='seeMore'>
             <a className='btn'>
@@ -73,6 +82,13 @@ class App extends React.Component {
         </div>
         <br></br>
         Movie ID: <input onChange={this.handleFlickPick} size='3' />
+        <Modal
+          pics={this.state.pics}
+          currentPic={this.state.currentPic}
+          currentFlick={this.state.currentFlick}
+          show={this.state.show}
+          onClose={this.handleClose} >
+        </Modal>
       </div>
     );
   }

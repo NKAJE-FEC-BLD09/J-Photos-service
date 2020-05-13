@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+#container {
+  position: relative;
+  z-index: 1;
+}
+
 .module {
   margin: 5px 0;
   border-top: 1px solid #CCC;
@@ -66,22 +71,54 @@ a:visited {
   vertical-align: top;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
+.modal {
+  position: fixed;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: black;
 }
 
-.tooltip .caption {
-  visibility: hidden;
-  background-color: white;
-  color: black;
-  text-align: center;
-  padding: 5px 0;
-  border: 1px;
+.ad {
+  width: 100%;
+  height: 65px;
+  background-color: black;
+}
+
+.grid-btn {
   position: absolute;
-  z-index: 1;
+  display: inline-block;
+  z-index: 102;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  margin: auto;
+  background-image: url(https://imdbpics.s3.us-east-2.amazonaws.com/grid_black.png);
 }
 
-.tooltip:hover {
-  visibility: visible;
+.close {
+  position: absolute;
+  display: inline-block;
+  z-index: 101;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  right: 10px;
+  border: 0;
+  outline: 0;
+  background-image: url(https://imdbpics.s3.us-east-2.amazonaws.com/closeX.png);
+}
+
+.gallery-object {
+  position: absolute;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 533px; 
 }
