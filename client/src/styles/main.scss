@@ -65,6 +65,7 @@ table {
   border-bottom: 1px solid #CCC;
   padding: 20px 21px 24px 20px;
   width: 667px;
+  font-family: Verdana, Arial, sans-serif;
 }
 
 h2 {
@@ -85,7 +86,6 @@ h2 {
 }
 
 a {
-  font-family: Verdana, Arial, sans-serif;
   font-size: 13px;
   color: #136CB2;
 }
@@ -116,6 +116,7 @@ a:hover {
 .btn {
   margin-top: -1px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .link {
@@ -126,7 +127,6 @@ a:hover {
 
 .arrows {
   display: inline-block;
-  font-family: Verdana, Arial, sans-serif;
   font-size: 12px;
   vertical-align: middle;
 }
@@ -140,6 +140,7 @@ a:hover {
   top: 0;
   left: 0;
   background-color: black;
+  color: #ccc;
 }
 
 .ad-banner {
@@ -151,7 +152,6 @@ a:hover {
 .ad {
   background-image: url(https://imdbpics.s3.us-east-2.amazonaws.com/Amazon_Ad.png);
   background-repeat: no-repeat;
-  cursor: pointer;
   z-index: 500;
   display: block;
   position: relative;
@@ -181,7 +181,6 @@ a:hover {
   z-index: 300;
   height: 25px;
   width: 25px;
-  cursor: pointer;
   border: 0;
   outline: 0;
   left: -14px;
@@ -205,35 +204,33 @@ a:hover {
   z-index: 250;
   height: 25px;
   width: 25px;
-  cursor: pointer;
   right: 10px;
   border: 0;
   outline: 0;
   background-image: url(https://imdbpics.s3.us-east-2.amazonaws.com/closeX.png);
 }
 
-.modal .media-object {
+.gallery-object {
   position: relative;
   display: block;
-  top: 46px;
+  top: 30px;
   z-index: 150;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
-  height: 450px; 
+  width: auto;
+  height: 400px; 
 }
 
 .arrow-btn {
   position: fixed;
   top: 50%;
-  cursor: pointer;
   display: block;
   height: 100px;
   width: 70px;
   background-repeat: no-repeat;
   background-color: rgba(0,0,0,0.3);
   border: 1px solid rgba(0,0,0,0.3);
-  opacity: 1;
+  opacity: 0;
   transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
   will-change: opacity;
   margin: -50px 0 0;
@@ -274,24 +271,80 @@ a:hover {
   max-height: 30%;
   padding: 15px 15%;
   background: rgba(20,20,20,0.85);
-  color: #ccc;
-  font-family: Verdana, Arial, sans-serif;
   font-size: 14px;
   position: fixed;
   z-index: 600;
   bottom: 0;
   display: block;
-  height: 139px;
+  height: 153px;
   width: 100%;
 }
 
+.top-row {
+  height: 24;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-info {
+  margin: auto;
+  max-width: 640px;
+}
+
+.image-count {
+  display: inline-block;
+  flex-grow: 1;
+  font-size: 16.1px;
+}
+
+.btn-links {
+  display: block;
+  width: 173.78px;
+  float: right;
+}
+
 .link-btn {
-  color: #ccc;
   text-decoration: none;
   border: 1px solid;
   border-radius: 8px;
   display: inline-block;
   font-size: 11.9px;
   margin-left: 10px;
-  padding: 3px 7px 5px;
+  padding: 5px 7px;
+  height: 24px;
+  color: #ccc;
+}
+
+p.image-links {
+  margin-block-start: 14px;
+  margin-block-end: 14px;
+  margin: 14px 0;
+}
+
+.image-links a {
+  font-size: 14px;
+  text-decoration: none;
+  color: rgb(99, 201, 255);
+  line-height: 17px;
+}
+
+.gallery-footer a:hover {
+  text-decoration: underline;
+}
+
+.metadata {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 11.9px;
+  padding-top: 10px;
+  line-height: 14px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.metadata a {
+  font-size: 11.9px;
+  color: rgb(99, 201, 255);
+  text-decoration: none;
 }

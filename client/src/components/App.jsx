@@ -12,7 +12,7 @@ class App extends React.Component {
 
     this.state = {
       pics: [photoDB[0], photoDB[3], photoDB[6], photoDB[9], photoDB[11], photoDB[16]],
-      currentPic: '',
+      currentPic: {},
       currentFlick: {},
       show: false
     };
@@ -21,9 +21,9 @@ class App extends React.Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
-  handlePicClick(photo) {
+  handlePicClick(e) {
     this.setState({
-      currentPic: photo,
+      currentPic: photoDB[e.target.id - 1],
       show: true
     });
   }

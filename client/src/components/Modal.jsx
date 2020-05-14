@@ -27,31 +27,47 @@ class Modal extends React.Component {
     }
     return (
       <div className='modal'>
-        <div className='ad-banner'><span className='ad'></span></div>
+        <div className='ad-banner'><a className='ad' href='https://www.amazon.com/Bosch-Season-6-Official-Trailer/dp/B085JXLMHQ'></a></div>
         <div className='gallery-header'>
           <a className='gallery-link' href={this.props.currentFlick.link}>
-            <span className='grid-btn'></span>
+            <span className='grid-btn btn'></span>
             <span className='gallery-title'>{this.props.currentFlick.title} ({this.props.currentFlick.copyright})</span>
           </a>
-          <button className='close' onClick={this.onClose} aria-label="Close"></button>
+          <button className='close btn' onClick={this.onClose} aria-label="Close"></button>
         </div>
         <div className='modal-main'>
-          <button className='left arrow-btn'>
+          <button className='left arrow-btn btn'>
             ::before
           </button>
-          <Photo photo={this.props.currentPic} />
-          {/* <img className='gallery-object' title={this.props.currentPic.caption} src={this.props.currentPic.url} /> */}
-          <button className='right arrow-btn'>
+          <img className='gallery-object' id={this.props.currentPic.id} src={this.props.currentPic.url} />
+          <button className='right arrow-btn btn'>
             ::before
           </button>
         </div>
         <div className='gallery-footer'>
           <div className='image-info'>
             <div className='top-row'>
+              <div className='image-count'># of {this.props.pics.length}</div>
               <div className='btn-links'>
-                <a className='link-btn' href="https://www.imdb.com/registration/signin">Edit Tags</a>
-                <a className='link-btn' href="https://www.imdb.com/registration/signin">Report This</a>
+                <a className='link-btn btn' href="https://www.imdb.com/registration/signin">Edit Tags</a>
+                <a className='link-btn btn' href="https://www.imdb.com/registration/signin">Report This</a>
               </div>
+            </div>
+            <p className='image-links'>
+              <a href={this.props.currentPic.people}>{this.props.currentPic.people} </a>
+              in
+              <a href={this.props.currentFlick.link}> {this.props.currentFlick.title} ({this.props.currentFlick.copyright})</a>
+            </p>
+            <div className='metadata'>
+              <div className='title-link'>
+                <strong>Titles: </strong>
+                <a href={this.props.currentFlick.link}>{this.props.currentFlick.title}</a>
+              </div>
+              <div className='actor-links'>
+                <strong>People: </strong>
+                <a href={this.props.currentPic.people}>{this.props.currentPic.people}</a>
+              </div>
+              <div className='copyright'>© {this.props.currentFlick.copyright} {this.props.currentFlick.studio}</div>
             </div>
           </div>
         </div>
