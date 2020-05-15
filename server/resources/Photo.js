@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 const photoSchema = new mongoose.Schema({
   id: Number,
   url: String,
+  thumbnail: String,
   subjects: mongoose.Mixed,
   caption: String,
-  people: String,
+  people: [String],
   photographer: String
 });
 

@@ -26,6 +26,7 @@ class App extends React.Component {
       currentPic: photoDB[e.target.id - 1],
       show: true
     });
+    console.log(e.target, this.state.currentPic);
   }
 
   handleFlickPick(e) {

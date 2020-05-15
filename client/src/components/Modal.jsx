@@ -8,14 +8,7 @@ const movieDB = require('../../../data/moviedb.json');
 class Modal extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   currentPic: props.currentPic,
-    //   currentFlick: props.currentFlick,
-    //   pics: props.pics
-    // }
   }
-// const Modal = (props) => {
 
   onClose = e => {
     this.props.onClose && this.props.onClose(e);
@@ -54,17 +47,17 @@ class Modal extends React.Component {
               </div>
             </div>
             <p className='image-links'>
-              <a href={this.props.currentPic.people}>{this.props.currentPic.people} </a>
-              in
-              <a href={this.props.currentFlick.link}> {this.props.currentFlick.title} ({this.props.currentFlick.copyright})</a>
+              <a href={this.props.currentPic.people}>{this.props.currentPic.people}</a>
+              &nbsp;in&nbsp;
+              <a href={this.props.currentFlick.link}>{this.props.currentFlick.title} ({this.props.currentFlick.copyright})</a>
             </p>
             <div className='metadata'>
               <div className='title-link'>
-                <strong>Titles: </strong>
+                <strong>Titles : </strong>
                 <a href={this.props.currentFlick.link}>{this.props.currentFlick.title}</a>
               </div>
               <div className='actor-links'>
-                <strong>People: </strong>
+                <strong>People : </strong>
                 <a href={this.props.currentPic.people}>{this.props.currentPic.people}</a>
               </div>
               <div className='copyright'>© {this.props.currentFlick.copyright} {this.props.currentFlick.studio}</div>
