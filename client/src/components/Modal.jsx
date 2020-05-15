@@ -54,9 +54,9 @@ class Modal extends React.Component {
               </div>
             </div>
             <p className='image-links'>
-              <a href={this.props.currentPic.people}>{this.props.currentPic.people} </a>
-              in
-              <a href={this.props.currentFlick.link}> {this.props.currentFlick.title} ({this.props.currentFlick.copyright})</a>
+              <a href={this.props.currentPic.people}>{this.props.currentPic.people}</a>
+              &nbsp;in&nbsp;
+              <a href={this.props.currentFlick.link}>{this.props.currentFlick.title} ({this.props.currentFlick.copyright})</a>
             </p>
             <div className='metadata'>
               <div className='title-link'>
