@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Photo from './Photo';
 
 const photoDB = require('../../../data/photodb.json');
 const movieDB = require('../../../data/moviedb.json');
@@ -10,8 +9,16 @@ class Modal extends React.Component {
     super(props);
   }
 
-  onClose = e => {
+  onClose = (e) => {
     this.props.onClose && this.props.onClose(e);
+  }
+
+  leftClick = (e) => {
+    this.props.leftClick && this.props.leftClick(e);
+  }
+
+  rightClick = (e) => {
+    this.props.rightClick && this.props.rightClick(e);
   }
 
   render() {
@@ -29,18 +36,18 @@ class Modal extends React.Component {
           <button className='close btn' onClick={this.onClose} aria-label="Close"></button>
         </div>
         <div className='modal-main'>
-          <button className='left arrow-btn btn'>
+          <button className='left arrow-btn btn' onClick={this.leftClick}>
             ::before
           </button>
           <img className='gallery-object' id={this.props.currentPic.id} src={this.props.currentPic.url} />
-          <button className='right arrow-btn btn'>
+          <button className='right arrow-btn btn' onClick={this.rightClick}>
             ::before
           </button>
         </div>
         <div className='gallery-footer'>
           <div className='image-info'>
             <div className='top-row'>
-              <div className='image-count'># of {this.props.pics.length}</div>
+              <div className='image-count'>{this.props.pics.indexOf(this.props.currentPic) + 1} of {this.props.pics.length}</div>
               <div className='btn-links'>
                 <a className='link-btn btn' href="https://www.imdb.com/registration/signin">Edit Tags</a>
                 <a className='link-btn btn' href="https://www.imdb.com/registration/signin">Report This</a>

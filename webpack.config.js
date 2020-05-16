@@ -10,13 +10,13 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            "presets": [
+            presets: [
               "@babel/preset-env", "@babel/preset-react", 
             ],
-            "plugins": [
+            plugins: [
               "@babel/plugin-syntax-class-properties", "@babel/plugin-proposal-class-properties",
             ],
-            "cacheDirectory": true
+            cacheDirectory: true
           }
         }
       },

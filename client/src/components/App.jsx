@@ -26,7 +26,6 @@ class App extends React.Component {
       currentPic: photoDB[e.target.id - 1],
       show: true
     });
-    console.log(e.target, this.state.currentPic);
   }
 
   handleFlickPick(e) {
@@ -63,6 +62,14 @@ class App extends React.Component {
     this.setState({ show: false });
   }
 
+  goLeft(e) {
+    this.setState({ currentPic: photoDB[this.props.pics.indexOf(this.state.currentPic) - 1]})
+  }
+
+  goRight(e) {
+    this.setState({ currentPic: photoDB[this.props.pics.indexOf(this.state.currentPic) + 1]})
+  }
+
   render() {
     return (
       <div className='module'>
@@ -88,7 +95,9 @@ class App extends React.Component {
           currentPic={this.state.currentPic}
           currentFlick={this.state.currentFlick}
           show={this.state.show}
-          onClose={this.handleClose} >
+          onClose={this.handleClose}
+          leftClick={this.goLeft}
+          rightClick={this.goRight} >
         </Modal>
       </div>
     );

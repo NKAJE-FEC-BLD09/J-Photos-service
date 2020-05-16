@@ -1,35 +1,34 @@
-const Movie = require('./resources/Movie');
-const db = require('./db');
+const Movie = require('./db');
 const moviedb = require('../data/moviedb.json');
 ////////////////////////////// Uncomment everything to overwrite moviedb.json with contents of MovieDB.csv
-const faker = require('faker');
-const fs = require('fs');
-const csv = require('csv-parser');
-const Promise = require('bluebird');
+// const faker = require('faker');
+// const fs = require('fs');
+// const csv = require('csv-parser');
+// const Promise = require('bluebird');
 
 // const json = fs.createWriteStream('data/moviedb.json', {flags: 'a'});
 
-var movies = [];
+// var movies = [];
 
-var generateMovies = new Promise((resolve, reject) => {
-  let n = 6;
-  while (n <= 100) {  
-    movies.push(
-      {
-        id: n,
-        title: faker.random.words(3),
-        images: "",
-        link: "",
-        copyright: faker.random.number({min: 1950, max: 2020}),
-        studio: faker.company.companyName()
-      }
-    );
-    n++;
-  };
-  if (movies.length === 95) {
-    resolve('95 movies generated');
-  }
-});
+// var generateMovies = new Promise((resolve, reject) => {
+//   let n = 6;
+//   while (n <= 100) {  
+//     movies.push(
+//       {
+//         id: n,
+//         title: faker.random.words(3),
+//         images: "",
+//         link: "",
+//         copyright: faker.random.number({min: 1950, max: 2020}),
+//         studio: faker.company.companyName()
+//       }
+//     );
+//     n++;
+//   };
+//   if (movies.length === 95) {
+//     resolve('95 movies generated');
+//   }
+// });
 
 // let fakeMovies = Promise.resolve(generateMovies);
 
