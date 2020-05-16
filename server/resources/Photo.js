@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-const photoSchema = new mongoose.Schema({
+var photoSchema = new mongoose.Schema({
   id: Number,
   url: String,
   thumbnail: String,
@@ -10,6 +10,6 @@ const photoSchema = new mongoose.Schema({
   photographer: String
 });
 
-const Photo = mongoose.model('Photo', photoSchema);
+var Photo = mongoose.model('Photo', photoSchema);
 
 module.exports = Photo;
