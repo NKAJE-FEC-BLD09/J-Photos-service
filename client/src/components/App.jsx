@@ -1,6 +1,7 @@
 import React from 'react';
 import PhotoSet from './PhotoSet';
 import Modal from './Modal';
+import $ from 'jquery';
 import '../styles/main.scss';
 
 const photoDB = require('../../../data/photodb.json');
@@ -21,6 +22,17 @@ class App extends React.Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
+  componentDidMount() {
+    fetch('http://localhost:3004/1')
+    .then(res => res.json())
+    .then((data) => {
+      res.send(data)
+    })
+    .catch(err => {
+      console.log(err)
+    });
+  }
+
   handlePicClick(e) {
     this.setState({
       currentPic: photoDB[e.target.id - 1],
@@ -28,11 +40,13 @@ class App extends React.Component {
     });
   }
 
-  handleFlickPick(e) {
-    this.setState({
-      pics: '',
-      currentFlick: movieDB[e.target.value - 1]
-    });
+  handleFlickPick(movie) {
+    $.post('/', { id: movie }, (data) => {
+      this.setState({
+        pics: '',
+        currentFlick: movieDB[e.target.value - 1]
+      });
+    })
     let moviePics = movieDB[e.target.value - 1].images.split(',');
 
     const randomPics = photoDB.filter(photo => {
