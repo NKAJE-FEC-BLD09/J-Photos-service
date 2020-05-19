@@ -1,3 +1,4 @@
+var react = require('react');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/imdb', { useNewUrlParser: true, useUnifiedTopology: true });
 

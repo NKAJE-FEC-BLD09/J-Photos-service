@@ -14,7 +14,7 @@ class App extends React.Component {
     this.state = {
       pics: [photoDB[0], photoDB[3], photoDB[6], photoDB[9], photoDB[11], photoDB[16]],
       currentPic: {},
-      currentFlick: {},
+      currentFlick: props.movies[0],
       show: false
     };
     this.handleFlickPick = this.handleFlickPick.bind(this);
@@ -26,7 +26,8 @@ class App extends React.Component {
     fetch('http://localhost:3004/1')
     .then(res => res.json())
     .then((data) => {
-      res.send(data)
+      this.setState({ currentFlick: data });
+      console.log(data);
     })
     .catch(err => {
       console.log(err)
@@ -41,11 +42,12 @@ class App extends React.Component {
   }
 
   handleFlickPick(movie) {
-    $.post('/', { id: movie }, (data) => {
+    $.post('/:id', { id: movie }, (data) => {
       this.setState({
         pics: '',
         currentFlick: movieDB[e.target.value - 1]
       });
+      console.log(currentFlick);
     })
     let moviePics = movieDB[e.target.value - 1].images.split(',');
 
