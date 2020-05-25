@@ -12,4 +12,3 @@ var PhotoSet = ({ photos, handlePicClick }) => (
 export default PhotoSet;
 
 // HTTP GET /photos?startIndex=0&size=6
-// HTTP GET /photos?startIndex=0&size=20

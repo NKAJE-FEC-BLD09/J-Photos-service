@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/modal.scss';
 
 const photoDB = require('../../../data/photodb.json');
 const movieDB = require('../../../data/moviedb.json');

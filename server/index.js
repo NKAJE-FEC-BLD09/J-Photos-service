@@ -1,18 +1,18 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const morgan = require('morgan');
+import express, { static } from 'express';
+import { urlencoded, json } from 'body-parser';
+import cors from 'cors';
+import morgan from 'morgan';
 // const router = require('./resources/routes');
-const Movie = require('./db');
+import Movie from './db';
 
 const app = express();
 const port = 3004;
 
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(bodyParser.json());
+app.use(urlencoded({ extended: false}));
+app.use(json());
 app.use(cors());
-app.use(express.static(__dirname + '/../client/dist'));
+app.use(static(__dirname + '/../client/dist'));
 
 // app.use('/', router);
 
@@ -21,7 +21,7 @@ app.get('/', async (req, res) => res.redirect('/index.html'));
 //   const allMovies = await db.getMovies();
 //   res.json(allMovies);
 // });
-app.get('/:id', (req, res) => {
+app.get('/:id', async (req, res) => {
   Movie.findOne({ id: req.params.id })
     .then((data) => {
       res.status(201).json(data);
@@ -37,6 +37,4 @@ app.post('/json', async (req, res) => res.sendStatus(201));
 //   res.sendStatus(201);
 // });
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+app.listen(port, () => console.log(`Listening on port ${port}`));

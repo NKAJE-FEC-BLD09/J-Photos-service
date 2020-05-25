@@ -1,12 +1,11 @@
-var react = require('react');
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/imdb', { useNewUrlParser: true, useUnifiedTopology: true });
+import { connect, connection, Schema, model } from 'mongoose';
+connect('mongodb://localhost/imdb', { useNewUrlParser: true, useUnifiedTopology: true });
 
-var db = mongoose.connection;
+const db = connection;
 db.on('error', console.error.bind(console, 'Mongoose connection err: '));
 db.once('open', () => { console.log('Mongoose connection successful') });
 
-var movieSchema = new mongoose.Schema({
+var movieSchema = new Schema({
     id: Number,
     title: String,
     images: String,
@@ -15,6 +14,6 @@ var movieSchema = new mongoose.Schema({
     studio: String
   });
   
-var Movie = mongoose.model('Movie', movieSchema);
+var Movie = model('Movie', movieSchema);
   
-module.exports = Movie;
+export default Movie;

@@ -7,6 +7,8 @@ import '../styles/main.scss';
 const photoDB = require('../../../data/photodb.json');
 const movieDB = require('../../../data/moviedb.json');
 
+const url = 'http://localhost:3004/';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -23,59 +25,32 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3004/1')
+    fetch(url + ':/id')
     .then(res => res.json())
     .then((data) => {
-      this.setState({ currentFlick: data });
-      console.log(data);
+      this.setState({ currentFlick: this.props.movies[1] });
+      console.log('data: ', data);
     })
     .catch(err => {
       console.log(err)
     });
+    console.log('current flick: ', currentFlick);
+    this.handleFlickPick();
   }
 
-  handlePicClick(e) {
-    this.setState({
-      currentPic: photoDB[e.target.id - 1],
-      show: true
-    });
-  }
+  getRandomPics() {
+    const randomPics = photoDB.filter(photo => { return photo.caption === '' });
 
-  handleFlickPick(movie) {
-    $.post('/:id', { id: movie }, (data) => {
-      this.setState({
-        pics: '',
-        currentFlick: movieDB[e.target.value - 1]
-      });
-      console.log(currentFlick);
-    })
-    let moviePics = movieDB[e.target.value - 1].images.split(',');
-
-    const randomPics = photoDB.filter(photo => {
-      return photo.caption === '';
-    });
     var pic1 = Math.floor(Math.random() * randomPics.length);
     var pic2 = Math.floor(Math.random() * randomPics.length);
     var pic3 = Math.floor(Math.random() * randomPics.length);
     var pic4 = Math.floor(Math.random() * randomPics.length);
     var pic5 = Math.floor(Math.random() * randomPics.length);
     var pic6 = Math.floor(Math.random() * randomPics.length);
-    
-    if (moviePics.length > 1) {
-      this.setState({
-        pics: photoDB.filter(photo => {
-          return moviePics.includes(photo.id);
-        })
-      });
-    } else {
-      this.setState({
-        pics: [randomPics[pic1], randomPics[pic2], randomPics[pic3], randomPics[pic4], randomPics[pic5], randomPics[pic6]]
-      });
-    }
-  }
 
-  handleClose(e) {
-    this.setState({ show: false });
+    this.setState({
+      pics: [randomPics[pic1], randomPics[pic2], randomPics[pic3], randomPics[pic4], randomPics[pic5], randomPics[pic6]]
+    });
   }
 
   goLeft(e) {
@@ -84,6 +59,37 @@ class App extends React.Component {
 
   goRight(e) {
     this.setState({ currentPic: photoDB[this.props.pics.indexOf(this.state.currentPic) + 1]})
+  }
+
+  handleClose(e) {
+    this.setState({ show: false });
+  }
+
+  handleFlickPick() {
+    // $.get('/:id', { id: e.target.value - 1 }, (data) => {
+      // this.setState({
+      //   pics: '',
+      //   currentFlick: props.movies[e.target.value - 1]
+      // });
+    // })
+    let moviePics = this.state.currentFlick.images.split(',');
+    
+    if (moviePics.length > 1) {
+      this.setState({
+        pics: photoDB.filter(photo => {
+          return moviePics.includes(photo.id);
+        })
+      });
+    } else {
+      this.getRandomPics();
+    }
+  }
+
+  handlePicClick(e) {
+    this.setState({
+      currentPic: photoDB[e.target.id - 1],
+      show: true
+    });
   }
 
   render() {
