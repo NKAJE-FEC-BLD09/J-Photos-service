@@ -3,7 +3,7 @@
     "movie_id": 1,
     "title": "Rubber",
     "image": [15,23,35,40,55,56],
-    "titleLink": "https://www.imdb.com/title/tt1612774/",
+    "link": "https://www.imdb.com/title/tt1612774/",
     "copyright": "2010",
     "studio": "Realitism Films"
   },
@@ -11,7 +11,7 @@
     "movie_id": 2,
     "title": "McLintock!",
     "image": [6,9,11,16,20,21],
-    "titleLink": "https://www.imdb.com/title/tt0057298/",
+    "link": "https://www.imdb.com/title/tt0057298/",
     "copyright": "1963",
     "studio": "Batjac Productions"
   },
@@ -19,7 +19,7 @@
     "movie_id": 3,
     "title": "Zoolander",
     "image": [5,8,13,24,41,60],
-    "titleLink": "https://www.imdb.com/title/tt0196229/",
+    "link": "https://www.imdb.com/title/tt0196229/",
     "copyright": "2001",
     "studio": "Paramount Pictures"
   },
@@ -27,7 +27,7 @@
     "movie_id": 4,
     "title": "Wedding Crashers",
     "image": [2,3,62,63,66,67],
-    "titleLink": "https://www.imdb.com/title/tt0396269/",
+    "link": "https://www.imdb.com/title/tt0396269/",
     "copyright": "2005",
     "studio": "New Line Cinema"
   },
@@ -35,7 +35,7 @@
     "movie_id": 5,
     "title": "Face/Off",
     "image": [14,22,45,50],
-    "titleLink": "https://www.imdb.com/title/tt0119094/",
+    "link": "https://www.imdb.com/title/tt0119094/",
     "copyright": "1997",
     "studio": "Touchstone Pictures"
   },

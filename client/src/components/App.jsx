@@ -24,7 +24,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.handleFlickPick();
+    this.handleFlickPick(2);
   }
 
   getRandomPics() {
@@ -63,8 +63,8 @@ class App extends React.Component {
     });
   }
 // HTTP GET /photos?startIndex=0&size=6
-  handleFlickPick() {
-    fetch('http://localhost:3004/:movie_id')
+  handleFlickPick(movie_id) {
+    fetch(`http://localhost:3004/${movie_id}`)
     .then(res => res.json())
     .then((data) => {
       console.log("data: ", data);
@@ -102,8 +102,8 @@ class App extends React.Component {
             <span className='arrows'>&nbsp;»</span>
           </div>
         </div>
-        <br></br>
-        Movie ID: <input onChange={this.handleFlickPick} size='3' />
+                {/*<br></br>
+ Movie ID: <input onChange={this.handleFlickPick} size='3' /> */}
         <Modal
           pics={this.state.pics}
           currentPic={this.state.currentPic}

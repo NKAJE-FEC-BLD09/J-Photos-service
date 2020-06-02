@@ -54,7 +54,7 @@ class Modal extends React.Component {
               </div>
             </div>
             <p className='image-links'>
-              <a href="https://www.imdb.com/name/nm0005562/">{this.props.currentPic.people}</a>
+              <a href={this.props.currentPic.links}>{this.props.currentPic.people}</a>
               &nbsp;in&nbsp;
               <a href={this.props.currentFlick.link}>{this.props.currentFlick.title} ({this.props.currentFlick.copyright})</a>
             </p>
@@ -65,7 +65,7 @@ class Modal extends React.Component {
               </div>
               <div className='actor-links'>
                 <strong>People : </strong>
-                <a href={this.props.currentPic.people}>{this.props.currentPic.people}</a>
+                <a href={this.props.currentPic.links}>{this.props.currentPic.people}</a>
               </div>
               <div className='copyright'>© {this.props.currentFlick.copyright} {this.props.currentFlick.studio}</div>
             </div>
