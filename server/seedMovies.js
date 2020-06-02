@@ -15,9 +15,9 @@ const moviedb = require('../data/moviedb.json');
 //   while (n <= 100) {  
 //     movies.push(
 //       {
-//         id: n,
+//         movie_id: n,
 //         title: faker.random.words(3),
-//         images: "",
+//         images: [],
 //         link: "",
 //         copyright: faker.random.number({min: 1950, max: 2020}),
 //         studio: faker.company.companyName()
@@ -33,13 +33,13 @@ const moviedb = require('../data/moviedb.json');
 // let fakeMovies = Promise.resolve(generateMovies);
 
 function insertAllMovies() {
-  // fakeMovies.then((value) => {
-  //   json.write(JSON.stringify(movies, null, 2) + ',\n', (err) => {
-  //     console.log(err || 'docs written');
-  //   });
-    // Movie.insertMany(movies, (err, docs) => {
-    //   console.log(err || docs.length + ' docs saved');
-    // });
+//   fakeMovies.then((value) => {
+//     json.write(JSON.stringify(movies, null, 2) + ',\n', (err) => {
+//       console.log(err || 'docs written');
+//     });
+//     Movie.insertMany(movies, (err, docs) => {
+//       console.log(err || docs.length + ' docs saved');
+//     });
 //   }, (err) => {
 //     console.log(err);
 // });
@@ -53,8 +53,9 @@ function insertAllMovies() {
   //     json.write(JSON.stringify(movies, null, 2) + ',\n');
       Movie.insertMany(moviedb, (err, docs) => {          //// change moviedb to movies to seed from csv vs json
         console.log(err || docs.length + ' docs saved');
-      });
-    // })
+      // });
+    })
 };
+
 // generateMovies();
 insertAllMovies();

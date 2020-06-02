@@ -16,14 +16,8 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 // app.use('/', router);
 
-app.get('/', async (req, res) => res.send('Welcome to IMDB'));
-app.get('/welcome', async (req, res) => res.json({ greeting: 'Welcome to IMDB', who: 'ya filthy animal' }));
-// app.get('/movies', async (req, res) => {
-//   const allMovies = await db.getMovies();
-//   res.json(allMovies);
-// });
-app.get('/:id', (req, res) => {
-  Movie.findOne({ id: req.params.id })
+app.get('/:movie_id', (req, res) => {
+  Movie.findOne({ movie_id: req.params.movie_id })
     .then((data) => {
       res.status(201).json(data);
     })

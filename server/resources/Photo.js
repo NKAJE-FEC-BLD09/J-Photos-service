@@ -1,12 +1,13 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 var photoSchema = new mongoose.Schema({
-  id: Number,
+  photo_id: Number,
   url: String,
   thumbnail: String,
   subjects: mongoose.Mixed,
   caption: String,
   people: [String],
+  links: [String],
   photographer: String
 });
 

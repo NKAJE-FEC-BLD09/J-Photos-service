@@ -39,7 +39,7 @@ class Modal extends React.Component {
           <button className='left arrow-btn btn' onClick={this.leftClick}>
             ::before
           </button>
-          <img className='gallery-object' id={this.props.currentPic.id} src={this.props.currentPic.url} />
+          <img className='gallery-object' id={this.props.currentPic.photo_id} src={this.props.currentPic.url} />
           <button className='right arrow-btn btn' onClick={this.rightClick}>
             ::before
           </button>
@@ -54,7 +54,7 @@ class Modal extends React.Component {
               </div>
             </div>
             <p className='image-links'>
-              <a href={this.props.currentPic.people}>{this.props.currentPic.people}</a>
+              <a href="https://www.imdb.com/name/nm0005562/">{this.props.currentPic.people}</a>
               &nbsp;in&nbsp;
               <a href={this.props.currentFlick.link}>{this.props.currentFlick.title} ({this.props.currentFlick.copyright})</a>
             </p>

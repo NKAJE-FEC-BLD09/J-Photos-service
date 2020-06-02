@@ -6,9 +6,9 @@ db.on('error', console.error.bind(console, 'Mongoose connection err: '));
 db.once('open', () => { console.log('Mongoose connection successful') });
 
 var movieSchema = new mongoose.Schema({
-    id: Number,
+    movie_id: Number,
     title: String,
-    images: String,
+    images: [Number],
     link: String,
     copyright: Number,
     studio: String
