@@ -1,81 +1,76 @@
-import React from 'react';
+import React, { useState } from "react";
 import PropTypes from 'prop-types';
-import '../styles/modal.scss';
+import Carousel from 'react-bootstrap/Carousel';
+import Image from 'react-bootstrap/Image';
 
-class Modal extends React.Component {
-  constructor(props) {
-    super(props);
+const Modal = ({ currentFlick, currentPic, onClose, pics, show }) => {
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+
+  const slides = pics.map(pic => 
+    <Carousel.Item key={pic.photo_id}>
+      <Image className='gallery-object d-block w-100' src={pic.url} alt={pic.people} fluid />
+    </Carousel.Item>
+  );
+
+  if (!show) {
+    return null;
   }
-
-  onClose = (e) => {
-    this.props.onClose && this.props.onClose(e);
-  }
-
-  leftClick = (e) => {
-    this.props.leftClick && this.props.leftClick(e);
-  }
-
-  rightClick = (e) => {
-    this.props.rightClick && this.props.rightClick(e);
-  }
-
-  render() {
-    if (!this.props.show) {
-      return null;
-    }
-    return (
-      <div className='modal'>
-        <div className='ad-banner'><a className='ad' href='https://www.amazon.com/Bosch-Season-6-Official-Trailer/dp/B085JXLMHQ'></a></div>
-        <div className='modal-main'>
-          <img className='gallery-object' id={this.props.currentPic.photo_id} src={this.props.currentPic.url} />
-          <div className='disappearing-btn'>
-            <button className='left arrow-btn btn' onClick={this.leftClick}>
-              ::before
-            </button>
-            <button className='right arrow-btn btn' onClick={this.rightClick}>
-              ::before
-            </button>
-          </div>
+  return (
+    <div className='modal'>
+      <div className='ad-banner'><a className='ad' href='https://www.amazon.com/Bosch-Season-6-Official-Trailer/dp/B085JXLMHQ'></a></div>
+      <Carousel className='modal-main' activeIndex={index} onSelect={handleSelect}>
+        {slides}
+        <div className='disappearing-btn'>
+          <button className='left arrow-btn btn' onClick={() => setIndex(index - 1)}>
+            ::before
+          </button>
+          <button className='right arrow-btn btn' onClick={() => setIndex(index + 1)}>
+            ::before
+          </button>
+        </div>  
+      </Carousel>
+      <div className='disappearing-banners'>
+        <div className='gallery-header'>
+          <a className='gallery-link' href={currentFlick.link}>
+            <span className='grid-btn btn'></span>
+            <span className='gallery-title'>{currentFlick.title} ({currentFlick.copyright})</span>
+          </a>
+          <button className='close btn' onClick={onClose} aria-label="Close"></button>
         </div>
-        <div className='disappearing-banners'>
-          <div className='gallery-header'>
-            <a className='gallery-link' href={this.props.currentFlick.link}>
-              <span className='grid-btn btn'></span>
-              <span className='gallery-title'>{this.props.currentFlick.title} ({this.props.currentFlick.copyright})</span>
-            </a>
-            <button className='close btn' onClick={this.onClose} aria-label="Close"></button>
-          </div>
-          <div className='gallery-footer'>
-            <div className='image-info'>
-              <div className='top-row'>
-                <div className='image-count'>{this.props.pics.indexOf(this.props.currentPic) + 1} of {this.props.pics.length}</div>
-                <div className='btn-links'>
-                  <a className='link-btn btn' href="https://www.imdb.com/registration/signin">Edit Tags</a>
-                  <a className='link-btn btn' href="https://www.imdb.com/registration/signin">Report This</a>
-                </div>
+        <div className='gallery-footer'>
+          <div className='image-info'>
+            <div className='top-row'>
+              <div className='image-count'>{pics.indexOf(currentPic) + 1} of {pics.length}</div>
+              <div className='btn-links'>
+                <a className='link-btn btn' href="https://www.imdb.com/registration/signin">Edit Tags</a>
+                <a className='link-btn btn' href="https://www.imdb.com/registration/signin">Report This</a>
               </div>
-              <p className='image-links'>
-                <a href={this.props.currentPic.links}>{this.props.currentPic.people}</a>
-                &nbsp;in&nbsp;
-                <a href={this.props.currentFlick.link}>{this.props.currentFlick.title} ({this.props.currentFlick.copyright})</a>
-              </p>
-              <div className='metadata'>
-                <div className='title-link'>
-                  <strong>Titles : </strong>
-                  <a href={this.props.currentFlick.link}>{this.props.currentFlick.title}</a>
-                </div>
-                <div className='actor-links'>
-                  <strong>People : </strong>
-                  <a href={this.props.currentPic.links}>{this.props.currentPic.people}</a>
-                </div>
-                <div className='copyright'>© {this.props.currentFlick.copyright} {this.props.currentFlick.studio}</div>
+            </div>
+            <p className='image-links'>
+              <a href={currentPic.links}>{currentPic.people}</a>
+              &nbsp;in&nbsp;
+              <a href={currentFlick.link}>{currentFlick.title} ({currentFlick.copyright})</a>
+            </p>
+            <div className='metadata'>
+              <div className='title-link'>
+                <strong>Titles : </strong>
+                <a href={currentFlick.link}>{currentFlick.title}</a>
               </div>
+              <div className='actor-links'>
+                <strong>People : </strong>
+                <a href={currentPic.links}>{currentPic.people}</a>
+              </div>
+              <div className='copyright'>© {currentFlick.copyright} {currentFlick.studio}</div>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 Modal.propTypes = {

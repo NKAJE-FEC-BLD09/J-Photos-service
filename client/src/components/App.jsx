@@ -1,12 +1,10 @@
 import React from 'react';
 import PhotoSet from './PhotoSet';
 import Modal from './Modal';
-import $ from 'jquery';
 import '../styles/main.scss';
-import bodyParser from 'body-parser';
+import '../styles/modal.scss';
 
 const photoDB = require('../../../data/photodb.json');
-const movieDB = require('../../../data/moviedb.json');
 
 class App extends React.Component {
   constructor(props) {
@@ -42,14 +40,6 @@ class App extends React.Component {
     this.setState({
       pics: [randomPics[pic1], randomPics[pic2], randomPics[pic3], randomPics[pic4], randomPics[pic5], randomPics[pic6]]
     });
-  }
-
-  goLeft(e) {
-    this.setState({ currentPic: photoDB[this.props.pics.indexOf(this.state.currentPic) - 1]})
-  }
-
-  goRight(e) {
-    this.setState({ currentPic: photoDB[this.props.pics.indexOf(this.state.currentPic) + 1]})
   }
  
   handleClose(e) {

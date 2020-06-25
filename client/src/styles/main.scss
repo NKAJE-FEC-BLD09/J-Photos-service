@@ -90,7 +90,7 @@ a {
   color: #136CB2;
 }
 
-.seeMore a {
+.seeMore > a {
   text-align: left;
   line-height: 1.15;
 }
@@ -100,11 +100,11 @@ a:hover {
   cursor: pointer;
 }
 
-.seeMore a:hover {
+.seeMore > a:hover {
   color: #136CB2;
 }
 
-.seeMore a:visited {
+.seeMore > a:visited {
   color: #70579D;
 }
 
@@ -130,3 +130,5 @@ a:hover {
   font-size: 12px;
   vertical-align: middle;
 }
+
+// @import "../../../node_modules/bootstrap/scss/bootstrap";

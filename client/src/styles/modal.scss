@@ -16,6 +16,8 @@
     cursor: pointer;
   }
   
+  /* AD
+  -------------------------------------------------- */
   .ad-banner {
     width: 100%;
     height: 65px;
@@ -35,6 +37,8 @@
     top: 4px;
   }
   
+  /* TOP BANNER
+  -------------------------------------------------- */
   .gallery-header {
     background-color: rgba(20, 20, 20, 0.85);
     border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -95,6 +99,8 @@
     background-image: url(https://imdbpics.s3.us-east-2.amazonaws.com/closeX.png);
   }
   
+  /* CAROUSEL
+  -------------------------------------------------- */
   .gallery-object {
     position: absolute;
     display: block;
@@ -102,9 +108,16 @@
     left: 33%;
     z-index: auto;
     width: auto;
-    height: 800px; 
+    height: 800px;  
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    visibility: hidden;
   }
   
+  /* ARROW BUTTONS
+  -------------------------------------------------- */
   .arrow-btn {
     position: fixed;
     top: 45%;
@@ -154,6 +167,8 @@
     position: absolute;
   }
   
+  /* BOTTOM BANNER
+  -------------------------------------------------- */
   .gallery-footer {
     border-top: 1px solid rgba(255,255,255,0.2);
     max-height: 30%;
