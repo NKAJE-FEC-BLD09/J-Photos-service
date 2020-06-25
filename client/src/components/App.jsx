@@ -1,10 +1,9 @@
 import React from 'react';
 import PhotoSet from './PhotoSet';
 import Modal from './Modal';
+import photoDB from '../../../data/photodb.json';
 import '../styles/main.scss';
 import '../styles/modal.scss';
-
-const photoDB = require('../../../data/photodb.json');
 
 class App extends React.Component {
   constructor(props) {
@@ -16,13 +15,16 @@ class App extends React.Component {
       currentFlick: {},
       show: false
     };
+
+    this.goLeft = this.goLeft.bind(this);
+    this.goRight = this.goRight.bind(this);
     this.handleFlickPick = this.handleFlickPick.bind(this);
     this.handlePicClick = this.handlePicClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
   }
 
   componentDidMount() {
-    this.handleFlickPick(2);
+    this.handleFlickPick(3);
   }
 
   getRandomPics() {
@@ -41,17 +43,23 @@ class App extends React.Component {
       pics: [randomPics[pic1], randomPics[pic2], randomPics[pic3], randomPics[pic4], randomPics[pic5], randomPics[pic6]]
     });
   }
- 
+
+  goLeft() {
+    this.setState({
+      currentPic: this.state.pics[this.state.pics.indexOf(this.state.currentPic) - 1]
+    })
+  } 
+
+  goRight() {
+    this.setState({
+      currentPic: this.state.pics[this.state.pics.indexOf(this.state.currentPic) + 1]
+    })
+  } 
+
   handleClose(e) {
     this.setState({ show: false });
   } 
 
-  handlePicClick(e) {
-    this.setState({
-      currentPic: photoDB[e.target.id - 1],
-      show: true
-    });
-  }
 // HTTP GET /photos?startIndex=0&size=6
   handleFlickPick(movie_id) {
     fetch(`http://localhost:3004/${movie_id}`)
@@ -72,6 +80,13 @@ class App extends React.Component {
       }
       console.log(this.state);
     })
+  }
+
+  handlePicClick(e) {
+    this.setState({
+      currentPic: photoDB[e.target.id - 1],
+      show: true
+    });
   }
 
   render() {
@@ -100,8 +115,8 @@ class App extends React.Component {
           currentFlick={this.state.currentFlick}
           show={this.state.show}
           onClose={this.handleClose}
-          leftClick={this.goLeft}
-          rightClick={this.goRight} >
+          goLeft={this.goLeft}
+          goRight={this.goRight} >
         </Modal>
       </div>
     );

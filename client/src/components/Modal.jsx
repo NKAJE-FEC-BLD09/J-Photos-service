@@ -3,35 +3,25 @@ import PropTypes from 'prop-types';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from 'react-bootstrap/Image';
 
-const Modal = ({ currentFlick, currentPic, onClose, pics, show }) => {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-
-  const slides = pics.map(pic => 
-    <Carousel.Item key={pic.photo_id}>
-      <Image className='gallery-object d-block w-100' src={pic.url} alt={pic.people} fluid />
-    </Carousel.Item>
-  );
-
+const Modal = ({ currentFlick, currentPic, goLeft, goRight, onClose, pics, show }) => {
   if (!show) {
     return null;
   }
   return (
     <div className='modal'>
       <div className='ad-banner'><a className='ad' href='https://www.amazon.com/Bosch-Season-6-Official-Trailer/dp/B085JXLMHQ'></a></div>
-      <Carousel className='modal-main' activeIndex={index} onSelect={handleSelect}>
-        {slides}
-        <div className='disappearing-btn'>
-          <button className='left arrow-btn btn' onClick={() => setIndex(index - 1)}>
+      <Carousel className='modal-main'>
+        <Carousel.Item>
+          <Image className='gallery-object d-block w-100' src={currentPic.url} alt={currentPic.caption} fluid />
+        </Carousel.Item>
+        <span className='disappearing-btn'>
+          <button className='left arrow-btn btn' onClick={() => goLeft()}>
             ::before
           </button>
-          <button className='right arrow-btn btn' onClick={() => setIndex(index + 1)}>
+          <button className='right arrow-btn btn' onClick={() => goRight()}>
             ::before
           </button>
-        </div>  
+        </span>  
       </Carousel>
       <div className='disappearing-banners'>
         <div className='gallery-header'>
@@ -71,11 +61,6 @@ const Modal = ({ currentFlick, currentPic, onClose, pics, show }) => {
       </div>
     </div>
   );
-};
-
-Modal.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  show: PropTypes.bool.isRequired
 };
 
 export default Modal;
