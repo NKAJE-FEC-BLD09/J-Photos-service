@@ -8,7 +8,7 @@
     "build": "webpack --config ./webpack.config.js --mode production --watch",
     "start": "webpack-dev-server --config ./webpack.config.js --open --mode development",
     "serve": "nodemon ./server/index.js",
-    "seed": "node server/seedMovies.js",
+    "seed": "node server/seedPhotos.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
