@@ -1,11 +1,11 @@
 ## MovieDB ##
-Photos Module
+<strong> Photos Module </strong>
 
 ## Summary ##
   > This project aims to replicate a movie page from IMDB, in particular the photos micro-service.
 
 ## How to Get Started ##
-  > To initialize app, use "npm run setup" to spin up client and server.
+  > To initialize app, use "npm run setup" to spin up client and server. <br>
   > To seed database, use "npm run seed" with mongoDB installed.
 
 ## Demo ##
