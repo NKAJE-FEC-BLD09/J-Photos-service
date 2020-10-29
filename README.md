@@ -1,5 +1,5 @@
 ## MovieDB ##
-<strong> Photos Module </strong>
+<strong> Photos Module Microservice </strong>
 
 ## Summary ##
   > This project aims to replicate a movie page from IMDB, in particular the photos micro-service.
